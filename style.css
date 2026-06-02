@@ -15,6 +15,16 @@
 
     
 }
+.scoreboard{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #7eb6ff;
+}
 main{
     margin-top: 5vh;
 }
@@ -70,7 +80,7 @@ body{
 }
 
 
-#reset{
+.action-button{
     margin-top: 3rem;
     padding: 0.8rem 1.5rem;
     font-size: 1.1rem;
@@ -85,11 +95,15 @@ body{
     cursor:pointer;
     transition: transform 0.2s ease;
 }
-#reset:hover{
+.action-button:hover{
     transform: scale(1.15);
 }
-#reset:active{
+.action-button:active{
     transform: scale(1);
+}
+
+#resetScore{
+    margin-left: 1rem;
 }
 
 #newgame{

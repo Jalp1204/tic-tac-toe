@@ -3,10 +3,18 @@ let resetBtn=document.querySelector("#reset");
 let newBtn=document.querySelector("#newgame");
 let winnerMsg=document.querySelector("#messege");
 let msgContainer=document.querySelector(".messegeContainer");
+let xScoreElement=document.querySelector("#xScore");
+let oScoreElement=document.querySelector("#oScore");
+let drawScoreElement=document.querySelector("#drawScore");
+let resetScoreBtn=document.querySelector("#resetScore");
 
 let turnX=true;
 let moveCount = 0;
 let gameOver = false;
+
+let xScore=0;
+let oScore=0;
+let draws=0;
 
 const winPatterns=[
     [0,1,2],
@@ -50,11 +58,14 @@ const enabledBoxes = () =>{
         box.disabled=false;
         box.innerText="";
     }
+    winnerMsg.innerText="";
     msgContainer.classList.add("hide");
 }
 
 const showDraw = () => {
     gameOver = true;
+    draws++;
+    updateScoreBoard();
     winnerMsg.innerText = "It's a Draw! 🤝";
     msgContainer.classList.remove("hide");
     disabledBoxes();
@@ -62,6 +73,14 @@ const showDraw = () => {
 
 const showWinner = (winner) => {
     gameOver = true;
+    if(winner === "X"){
+    xScore++;
+    }
+    else{
+        oScore++;
+    }
+
+    updateScoreBoard();
     winnerMsg.innerText=`congratulations🥳, winner is ${winner}!`;
     msgContainer.classList.remove("hide");
     disabledBoxes();
@@ -83,6 +102,22 @@ const checkWinner = () => {
     }
 };
 
+const resetScoreBoard = () => {
+    xScore=0;
+    oScore=0;
+    draws=0;
+    
+    updateScoreBoard();
+};
+
+
+const updateScoreBoard = () => {
+    xScoreElement.innerText=`X : ${xScore}`;
+    drawScoreElement.innerText=`draws : ${draws}`;
+    oScoreElement.innerText=`O : ${oScore}`;
+};
+updateScoreBoard();
+
 const resetGame = () =>{
     turnX=true;
     moveCount=0;
@@ -92,3 +127,4 @@ const resetGame = () =>{
 
 newBtn.addEventListener("click",resetGame);
 resetBtn.addEventListener("click",resetGame);
+resetScoreBtn.addEventListener("click",resetScoreBoard);
