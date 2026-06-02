@@ -91,3 +91,55 @@ body{
 #reset:active{
     transform: scale(1);
 }
+
+#newgame{
+    margin-top: 3rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color:#16062f;
+    color:red;
+    border:none;
+    border-radius:0.5rem;
+    box-shadow:
+    0 0 5px red,
+    0 0 10px rgba(255,0,0,0.5);
+    cursor:pointer;
+    transition: transform 0.2s ease;
+}
+#newgame:hover{
+    transform: scale(1.15);
+}
+#newgame:active{
+    transform: scale(1);
+}
+
+.messegeContainer{
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.75);
+
+    gap: 2rem;
+    z-index: 1000;
+}
+.hide{
+    display:none;
+}
+
+#messege{
+    color: #7eb6ff;
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow:
+    0 0 10px #7eb6ff,
+    0 0 20px #7eb6ff;
+}
+
+
+
